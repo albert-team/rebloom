@@ -1,0 +1,13 @@
+{
+  "name": "rebloom",
+  "description": "RedisBloom for Node.js",
+  "license": "MIT",
+  "version": "0.1.0-canary.0",
+  "author": "Albert Team",
+  "repository": "git@github.com:albert-team/rebloom.git",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^5.14.1"
+  }
+}

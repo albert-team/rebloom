@@ -1,0 +1,17 @@
+{
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "ecmaFeatures": {
+      "impliedStrict": true
+    }
+  },
+  "rules": {
+    "eqeqeq": ["error", "smart"],
+    "no-console": "off"
+  }
+}
