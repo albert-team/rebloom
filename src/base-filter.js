@@ -9,7 +9,7 @@ class BaseFilter {
         host: 'localhost',
         port: 6379,
         minCapacity: 1000,
-        errorRate: 0.001
+        errorRate: 0.001 // only apply for BloomFilter
       },
       options
     )

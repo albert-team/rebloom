@@ -1,8 +1,8 @@
 {
-  "name": "rebloom",
+  "name": "@albert-team/rebloom",
   "description": "RedisBloom for Node.js",
   "license": "MIT",
-  "version": "0.1.0-canary.0",
+  "version": "0.1.0-beta.0",
   "author": "Albert Team",
   "repository": "git@github.com:albert-team/rebloom.git",
   "main": "src/index.js",
