@@ -5,8 +5,10 @@
   "version": "0.1.0-canary.0",
   "author": "Albert Team",
   "repository": "git@github.com:albert-team/rebloom.git",
-  "main": "index.js",
-  "dependencies": {},
+  "main": "src/index.js",
+  "dependencies": {
+    "@albert-team/red": "^0.2.0"
+  },
   "devDependencies": {
     "eslint": "^5.14.1"
   }
