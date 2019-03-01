@@ -10,8 +10,8 @@ class BloomFilter extends BaseFilter {
       await this.client.call(
         'BF.RESERVE',
         this.name,
-        String(this.options.errorRate),
-        String(this.options.minCapacity)
+        this.options.errorRate,
+        this.options.minCapacity
       )
     } catch (err) {
       if (err.message === 'ERR item exists') return // ignore the error if the filter is already created
@@ -20,19 +20,19 @@ class BloomFilter extends BaseFilter {
   }
 
   async add(item) {
-    return this.client.call('BF.ADD', this.name, String(item))
+    return this.client.call('BF.ADD', this.name, item)
   }
 
   async addMany(...items) {
-    return this.client.call('BF.MADD', this.name, ...items.map((item) => String(item)))
+    return this.client.call('BF.MADD', this.name, ...items)
   }
 
   async exists(item) {
-    return this.client.call('BF.EXISTS', this.name, String(item))
+    return this.client.call('BF.EXISTS', this.name, item)
   }
 
   async existsMany(...items) {
-    return this.client.call('BF.MEXISTS', this.name, ...items.map((item) => String(item)))
+    return this.client.call('BF.MEXISTS', this.name, ...items)
   }
 }
 

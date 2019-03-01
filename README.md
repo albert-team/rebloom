@@ -5,14 +5,14 @@
 
 # REBLOOM
 
-> RedisBloom for Node.js
+> Bloom filter and Cuckoo filter using Redis with RedisBloom module
 
 ## Installation
 
 ### Requirements
 
 - Node.js >= 8.0.0
-- Redis
+- Redis (server)
 
 ### Instructions
 

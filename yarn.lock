@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@albert-team/red@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@albert-team/red/-/red-0.2.0.tgz#c2dae5f4093d7d03e715281113c41ba0c12ab2c2"
-  integrity sha512-SsTa91CSHhd9RMLYv/Agdc1d5iGeEcQIPXthjNYZIKQ6qRoreSkusiwlcKrhT4g1d3F7EmhzO9tdDrK20MEgIw==
+"@albert-team/red@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@albert-team/red/-/red-0.3.0.tgz#97bc29e42dc43527817012863c31e44774e16541"
+  integrity sha512-BNu2zAjaPmtYh/R+3Cp+yyd2LaVMyCry1EZS5YIWmDGdV3L5IyqXR8TyN+7KTK5E9zoAJwu4aIPBHaf3PZJW8g==
   dependencies:
     node-wait-until "^1.0.0"
     redis-parser "^3.0.0"
