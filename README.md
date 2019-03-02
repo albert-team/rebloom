@@ -12,7 +12,7 @@
 ### Requirements
 
 - Node.js >= 8.0.0
-- Redis (server)
+- Redis >= 4.0
 
 ### Instructions
 
