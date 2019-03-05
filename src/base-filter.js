@@ -8,14 +8,14 @@ class BaseFilter {
       {
         host: 'localhost',
         port: 6379,
+        client: null, // if provided, ignore host and port options
         minCapacity: 1000,
         errorRate: 0.001 // only apply for BloomFilter
       },
       options
     )
-
-    const { host, port } = this.options
-    this.client = new Red(host, port)
+    const { host, port, client } = this.options
+    this.client = client ? client : new Red(host, port)
   }
 
   async connect() {
@@ -33,12 +33,8 @@ class BaseFilter {
 
   async loadModule() {
     const [modules] = await this.client.call('MODULE', 'LIST')
-    if (!modules || !modules.includes('bf'))
-      return this.client.call(
-        'MODULE',
-        'LOAD',
-        path.join(__dirname, 'redisbloom-1.1.1.so')
-      )
+    if (modules && modules.includes('bf')) return
+    return this.client.call('MODULE', 'LOAD', path.join(__dirname, 'redisbloom-1.1.1.so'))
   }
 
   async createFilter() {}
