@@ -1,21 +1,15 @@
 const path = require('path')
 const Red = require('@albert-team/red')
 
+const Options = require('./options')
+
 class BaseFilter {
   constructor(name, options = {}) {
     this.name = name
-    this.options = Object.assign(
-      {
-        host: 'localhost',
-        port: 6379,
-        client: null, // if provided, ignore host and port options
-        minCapacity: 1000,
-        errorRate: 0.001 // only apply for BloomFilter
-      },
-      options
-    )
-    const { host, port, client } = this.options
-    this.client = client ? client : new Red(host, port)
+    this.options = new Options(options)
+
+    const { host, port, password, client } = this.options
+    this.client = client ? client : new Red(host, port, { password })
   }
 
   async connect() {
