@@ -22,12 +22,12 @@ class BaseFilter {
      */
     this.options = new Options(options)
 
-    const { client, host, port, password } = this.options
+    const { client, host, port, redisClientOptions } = this.options
     /**
      * @private
      * @type {Red}
      */
-    this.client = client ? client : new Red(host, port, { password })
+    this.client = client ? client : new Red(host, port, redisClientOptions)
   }
 
   /**
