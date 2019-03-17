@@ -9,11 +9,15 @@
   "files": [
     "src"
   ],
+  "scripts": {
+    "build:docs": "jsdoc -c .jsdoc.json"
+  },
   "dependencies": {
     "@albert-team/red": "^0.5.0"
   },
   "devDependencies": {
-    "eslint": "^5.15.2"
+    "eslint": "^5.15.2",
+    "jsdoc": "^3.5.5"
   },
   "keywords": [
     "bloom",
