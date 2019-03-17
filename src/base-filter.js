@@ -13,14 +13,14 @@ class BaseFilter {
 
   async connect() {
     await this.client.connect()
-    if (this.options.reserved) await this.createFilter()
+    if (this.options.reserved) await this.reserve()
   }
 
   async disconnect() {
     return this.client.disconnect()
   }
 
-  async createFilter() {}
+  async reserve() {}
 }
 
 module.exports = BaseFilter

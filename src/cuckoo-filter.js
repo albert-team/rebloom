@@ -5,7 +5,7 @@ class CuckooFilter extends BaseFilter {
     super(name, options)
   }
 
-  async createFilter() {
+  async reserve() {
     try {
       await this.client.call('CF.RESERVE', this.name, this.options.minCapacity)
     } catch (err) {
@@ -15,8 +15,7 @@ class CuckooFilter extends BaseFilter {
   }
 
   async add(item, notExistsOnly = true) {
-    let command = 'CF.ADD'
-    if (notExistsOnly) command = 'CF.ADDNX'
+    const command = notExistsOnly ? 'CF.ADDNX' : 'CF.ADD'
     return this.client.call(command, this.name, item)
   }
 

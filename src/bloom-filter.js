@@ -5,7 +5,7 @@ class BloomFilter extends BaseFilter {
     super(name, options)
   }
 
-  async createFilter() {
+  async reserve() {
     try {
       await this.client.call(
         'BF.RESERVE',
