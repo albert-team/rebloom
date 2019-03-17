@@ -1,12 +1,47 @@
+/**
+ * Options for the filters
+ * @private
+ * @param {Object} [options={}] - Custom options
+ */
 class Options {
   constructor(options = {}) {
-    this.client = null // if provided, ignore host, port and password
+    /**
+     * Redis client (only Red is compatible). If provided, ignore host, port and password
+     * @public
+     * @type {(Red|null|undefined)}
+     */
+    this.client = null
+    /**
+     * @public
+     * @type {string}
+     */
     this.host = 'localhost'
+    /**
+     * @public
+     * @type {number}
+     */
     this.port = 6379
+    /**
+     * @public
+     * @type {(string|null|undefined)}
+     */
     this.password = null
-    this.reserved = true // if false, ignore minCapacity and errorRate
+    /** Whether reserve space for the filter. If false, ignore minCapacity and errorRate
+     * @public
+     * @type {boolean}
+     */
+    this.reserved = true
+    /**
+     * @public
+     * @type {number}
+     */
     this.minCapacity = 1000
-    this.errorRate = 0.001 // only apply for BloomFilter
+    /**
+     * Only apply to BloomFilter
+     * @public
+     * @type {number}
+     */
+    this.errorRate = 0.001
 
     Object.assign(this, options)
   }
