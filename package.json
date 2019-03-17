@@ -1,8 +1,8 @@
 {
   "name": "@albert-team/rebloom",
-  "description": "Bloom filter and Cuckoo filter using Redis with RedisBloom module",
+  "description": "Bloom filter and Cuckoo filter for Node.js using Redis with RedisBloom module",
   "license": "MIT",
-  "version": "0.1.2",
+  "version": "1.0.0-canary.0",
   "author": "Albert Team",
   "repository": "git@github.com:albert-team/rebloom.git",
   "main": "src/index.js",
