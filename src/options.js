@@ -22,10 +22,11 @@ class Options {
      */
     this.port = 6379
     /**
+     * Options for the Redis client (Red instance)
      * @public
-     * @type {(string|null|undefined)}
+     * @type {Object}
      */
-    this.password = null
+    this.redisClientOptions = {}
     /** Whether reserve space for the filter. If false, ignore minCapacity and errorRate
      * @public
      * @type {boolean}
