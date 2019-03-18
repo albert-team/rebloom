@@ -29,6 +29,8 @@ yarn add @albert-team/rebloom
 
 ## Usage
 
+**Important**: [RedisBloom](https://github.com/RedisLabsModules/redisbloom) module needs to be loaded into Redis server beforehand.
+
 ```js
 const { BloomFilter } = require('@albert-team/rebloom')
 
@@ -51,7 +53,3 @@ main()
 ## Changelog
 
 Read more [here](https://github.com/albert-team/rebloom/blob/master/CHANGELOG.md).
-
-## Credits
-
-- [RedisLabsModules/redisbloom](https://github.com/RedisLabsModules/redisbloom)

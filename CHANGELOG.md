@@ -1,10 +1,15 @@
 # CHANGELOG
 
+## v1.0.0
+
+- NEW: Use _Red_ options with `Options.redisClientOptions`
+- CHANGED: Remove `Options.password`
+
 ## v1.0.0-canary.0
 
 - NEW: Support using a custom Redis client
 - NEW: Support Redis client authentication
-- NEW: Start writing documentation
+- NEW: Start writing documentation with _JSDoc_
 - CHANGED: No longer load RedisBloom module internally
 
 ## v0.1.1, v0.1.2
