@@ -1,8 +1,12 @@
 # CHANGELOG
 
+## v1.1.0
+
+- NEW: Support the ability to reset the filter. You can set `Options.reset = true` to automatically reset on connected
+
 ## v1.0.0
 
-- NEW: Use _Red_ options with `Options.redisClientOptions`
+- NEW: Now you can use _Red_ options with `Options.redisClientOptions`
 - CHANGED: Remove `Options.password`
 
 ## v1.0.0-canary.0
