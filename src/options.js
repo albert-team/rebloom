@@ -6,9 +6,9 @@
 class Options {
   constructor(options = {}) {
     /**
-     * Redis client (only Red is compatible). If provided, ignore host, port and password
+     * Redis client (only Red is compatible). If provided, ignore host, port and redisClientOptions
      * @public
-     * @type {(Red|null|undefined)}
+     * @type {?Red}
      */
     this.client = null
     /**
@@ -24,10 +24,15 @@ class Options {
     /**
      * Options for the Redis client (Red instance)
      * @public
-     * @type {Object}
+     * @type {?Object}
      */
     this.redisClientOptions = {}
-    /** Whether reserve space for the filter. If false, ignore minCapacity and errorRate
+    /**
+     * @public
+     * @type {boolean}
+     */
+    this.reset = false
+    /** Whether reserve space for the filter. If false, ignore minCapacity and errorRate.
      * @public
      * @type {boolean}
      */

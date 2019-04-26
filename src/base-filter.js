@@ -37,6 +37,7 @@ class BaseFilter {
    */
   async connect() {
     await this.client.connect()
+    if (this.options.reset) await this.reset()
     if (this.options.reserved) await this.reserve()
   }
 
@@ -56,6 +57,15 @@ class BaseFilter {
    * @async
    */
   async reserve() {}
+
+  /**
+   * Reset the filter
+   * @public
+   * @async
+   */
+  async reset() {
+    return this.client.call('DEL', this.name)
+  }
 }
 
 module.exports = BaseFilter
