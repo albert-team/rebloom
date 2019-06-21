@@ -4,20 +4,19 @@
   "license": "MIT",
   "version": "1.1.0",
   "author": "Albert Team",
-  "repository": "git@github.com:albert-team/rebloom.git",
+  "repository": "github:albert-team/rebloom",
   "main": "src/index.js",
   "files": [
     "src"
   ],
   "scripts": {
-    "build:docs": "jsdoc -c .jsdoc.json"
+    "build:docs": ""
   },
   "dependencies": {
-    "@albert-team/red": "^0.5.0"
+    "@albert-team/red": "^0.6.0"
   },
   "devDependencies": {
-    "eslint": "^5.16.0",
-    "jsdoc": "^3.5.5"
+    "eslint": "^5.16.0"
   },
   "keywords": [
     "bloom",
