@@ -1,10 +1,7 @@
 {
   "compilerOptions": {
-    // disable when all files converted to TypeScript
-    "allowJs": true,
     "alwaysStrict": true,
-    // enable when all files converted to TypeScript
-    // "declaration": true,
+    "declaration": true,
     "esModuleInterop": true,
     "module": "commonjs",
     "moduleResolution": "node",
