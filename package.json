@@ -5,18 +5,28 @@
   "version": "1.1.0",
   "author": "Albert Team",
   "repository": "github:albert-team/rebloom",
-  "main": "src/index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "src"
+    "dist"
   ],
   "scripts": {
-    "build:docs": ""
+    "build": "tsc",
+    "build:docs": "",
+    "prepublishOnly": "rm -rf dist && yarn build"
   },
   "dependencies": {
     "@albert-team/red": "^0.6.0"
   },
   "devDependencies": {
-    "eslint": "^5.16.0"
+    "@types/node": "^12.0.8",
+    "@typescript-eslint/eslint-plugin": "^1.10.2",
+    "@typescript-eslint/parser": "^1.10.2",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^5.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "prettier": "^1.18.2",
+    "typescript": "^3.5.2"
   },
   "keywords": [
     "bloom",

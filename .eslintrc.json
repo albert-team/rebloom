@@ -1,18 +1,23 @@
 {
+  "parser": "@typescript-eslint/parser",
   "env": {
     "es6": true,
     "node": true
   },
-  "extends": "eslint:recommended",
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended",
+    "eslint:recommended"
+  ],
   "parserOptions": {
     "ecmaVersion": 2018,
     "ecmaFeatures": {
       "impliedStrict": true
-    }
+    },
+    "sourceType": "module"
   },
   "rules": {
-    "eqeqeq": ["error", "smart"],
-    "no-console": "off",
-    "no-unused-vars": "warn"
+    "no-console": "off"
   }
 }
