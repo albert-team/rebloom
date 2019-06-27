@@ -22,12 +22,11 @@ export default abstract class BaseFilter {
   }
 
   /**
-   * Connect to Redis server then reset and reserve space if needed
+   * Connect to Redis server then reset if needed
    */
   public async connect() {
     await this.client.connect()
     if (this.options.reset) await this.reset()
-    if (this.options.reserved) await this.reserve()
   }
 
   /**
@@ -36,11 +35,6 @@ export default abstract class BaseFilter {
   public async disconnect() {
     return this.client.disconnect()
   }
-
-  /**
-   * Reserve space for the filter
-   */
-  public abstract async reserve(): Promise<void>
 
   /**
    * Reset the filter

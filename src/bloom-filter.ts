@@ -6,19 +6,12 @@ import BaseFilter from './base-filter'
 export default class BloomFilter extends BaseFilter {
   /**
    * Reserve space for the filter
+   * @param errorRate Error rate
+   * @param minCapacity Minimum capacity
+   * @return OK on success, error otherwise
    */
-  public async reserve(): Promise<void> {
-    try {
-      await this.client.call(
-        'BF.RESERVE',
-        this.name,
-        this.options.errorRate,
-        this.options.minCapacity
-      )
-    } catch (err) {
-      if (err.message === 'ERR item exists') return // ignore the error if the filter is already created
-      throw err
-    }
+  public reserve(errorRate: number, minCapacity: number): Promise<string> {
+    return this.client.call('BF.RESERVE', this.name, errorRate, minCapacity)
   }
 
   /**

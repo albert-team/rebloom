@@ -6,14 +6,11 @@ import BaseFilter from './base-filter'
 export default class CuckooFilter extends BaseFilter {
   /**
    * Reserve space for the filter
+   * @param minCapacity Minimum capacity
+   * @return OK on success, error otherwise
    */
-  public async reserve(): Promise<void> {
-    try {
-      await this.client.call('CF.RESERVE', this.name, this.options.minCapacity)
-    } catch (err) {
-      if (err.message === 'ERR item exists') return // ignore the error if the filter is already created
-      throw err
-    }
+  public reserve(minCapacity: number): Promise<string> {
+    return this.client.call('CF.RESERVE', this.name, minCapacity)
   }
 
   /**

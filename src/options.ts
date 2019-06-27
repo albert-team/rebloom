@@ -9,9 +9,6 @@ export interface OptionsInterface {
   port?: number
   redisClientOptions?: object
   reset?: boolean
-  reserved?: boolean
-  minCapacity?: number
-  errorRate?: number
 }
 
 /**
@@ -33,16 +30,6 @@ export default class Options implements OptionsInterface {
    * Whether to remove old data if the filter name/key already exists
    */
   public reset: boolean = false
-  /**
-   * Whether reserve space for the filter.
-   * If false, ignore minCapacity and errorRate.
-   */
-  public reserved: boolean = true
-  public minCapacity: number = 1000
-  /**
-   * Only apply to BloomFilter
-   */
-  public errorRate: number = 0.001
 
   constructor(options: OptionsInterface) {
     Object.assign(this, options)
