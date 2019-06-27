@@ -28,7 +28,7 @@ export default class BloomFilter extends BaseFilter {
    * @param items Items
    * @return Array of integers. Each is either 1 or 0
    */
-  public addMany(...items: any[]): Promise<number[]> {
+  public addMany(items: any[]): Promise<number[]> {
     return this.client.call('BF.MADD', this.name, ...items)
   }
 
@@ -46,7 +46,7 @@ export default class BloomFilter extends BaseFilter {
    * @param items Items
    * @return Array of integers. Each is either 1 or 0
    */
-  public existsMany(...items: any[]): Promise<number[]> {
+  public existsMany(items: any[]): Promise<number[]> {
     return this.client.call('BF.MEXISTS', this.name, ...items)
   }
 }
