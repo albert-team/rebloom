@@ -8,7 +8,6 @@ export interface OptionsInterface {
   host?: string
   port?: number
   redisClientOptions?: object
-  reset?: boolean
 }
 
 /**
@@ -26,10 +25,6 @@ export default class Options implements OptionsInterface {
    * Options passed directly to the client constructor
    */
   public redisClientOptions: object = {}
-  /**
-   * Whether to remove old data if the filter name/key already exists
-   */
-  public reset: boolean = false
 
   constructor(options: OptionsInterface) {
     Object.assign(this, options)

@@ -22,11 +22,10 @@ export default abstract class BaseFilter {
   }
 
   /**
-   * Connect to Redis server then reset if needed
+   * Connect to Redis server
    */
-  public async connect() {
-    await this.client.connect()
-    if (this.options.reset) await this.reset()
+  public connect() {
+    return this.client.connect()
   }
 
   /**
@@ -38,8 +37,9 @@ export default abstract class BaseFilter {
 
   /**
    * Reset the filter
+   * @return 1 on success, 0 otherwise
    */
-  public async reset() {
+  public reset(): Promise<number> {
     return this.client.call('DEL', this.name)
   }
 }
