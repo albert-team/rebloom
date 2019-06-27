@@ -5,12 +5,12 @@ import Options, { OptionsInterface } from './options'
  * Filter base class
  */
 export default abstract class BaseFilter {
-  protected name: string
-  protected options: Options
-  protected client: any
+  protected readonly name: string
+  protected readonly options: Options
+  protected client: Red
 
   /**
-   * @param name Name of the filter
+   * @param name Name/key of the filter
    * @param options Options
    */
   constructor(name: string, options: OptionsInterface = {}) {

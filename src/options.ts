@@ -1,5 +1,10 @@
+import Red from '@albert-team/red'
+
+/**
+ * Options interface
+ */
 export interface OptionsInterface {
-  client?: any
+  client?: Red
   host?: string
   port?: number
   redisClientOptions?: object
@@ -14,15 +19,23 @@ export interface OptionsInterface {
  */
 export default class Options implements OptionsInterface {
   /**
-   * Redis client (only Red is compatible). If provided, ignore host, port and redisClientOptions
+   * Redis client (only [Red](https://www.npmjs.com/package/@albert-team/red) is compatible).
+   * If provided, ignore host, port and redisClientOptions.
    */
-  public client: any
+  public client: Red
   public host: string = 'localhost'
   public port: number = 6379
+  /**
+   * Options passed directly to the client constructor
+   */
   public redisClientOptions: object = {}
+  /**
+   * Whether to remove old data if the filter name/key already exists
+   */
   public reset: boolean = false
   /**
-   * Whether reserve space for the filter. If false, ignore minCapacity and errorRate.
+   * Whether reserve space for the filter.
+   * If false, ignore minCapacity and errorRate.
    */
   public reserved: boolean = true
   public minCapacity: number = 1000
