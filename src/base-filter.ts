@@ -7,7 +7,7 @@ import Options, { OptionsInterface } from './options'
 export default abstract class BaseFilter {
   protected readonly name: string
   protected readonly options: Options
-  protected client: Red
+  protected readonly client: Red
 
   /**
    * @param name Name/key of the filter
@@ -31,7 +31,7 @@ export default abstract class BaseFilter {
   /**
    * Disconnect from Redis server
    */
-  public async disconnect() {
+  public disconnect() {
     return this.client.disconnect()
   }
 

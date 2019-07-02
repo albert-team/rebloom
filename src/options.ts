@@ -22,7 +22,7 @@ export default class Options implements OptionsInterface {
   public host: string = 'localhost'
   public port: number = 6379
   /**
-   * Options passed directly to the client constructor
+   * Options passed directly to the Redis client constructor
    */
   public redisClientOptions: object = {}
 
