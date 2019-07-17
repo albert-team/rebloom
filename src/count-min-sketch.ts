@@ -25,7 +25,7 @@ export default class CountMinSketch extends BaseFilter {
   }
 
   /**
-   * Increases the count of an item by increment
+   * Increase the count of an item by increment
    * @param item Item
    * @param increment Increment
    * @return OK on success, error otherwise
