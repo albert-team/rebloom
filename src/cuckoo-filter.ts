@@ -17,7 +17,7 @@ export default class CuckooFilter extends BaseFilter {
    * Add an item to the filter
    * @param item Item
    * @param notExistsOnly Whether to accept duplicates
-   * @return 1 if item was added, 0 if item already exists and notExistsOnly, error otherwise
+   * @return 1 if item was newly added, 0 if item already exists and notExistsOnly is true, error otherwise
    */
   public add(item: any, notExistsOnly: boolean = true): Promise<number> {
     const command = notExistsOnly ? 'CF.ADDNX' : 'CF.ADD'
@@ -27,14 +27,15 @@ export default class CuckooFilter extends BaseFilter {
   /**
    * Check if an item already exists in the filter
    * @param item Item
-   * @return 0 if item certainly does not exist, 1 if item may exist
+   * @return 1 if item may exist, 0 if item certainly does not exist
    */
   public exists(item: any): Promise<number> {
     return this.client.call('CF.EXISTS', this.name, item)
   }
 
   /**
-   * Count the number of occurrences of an item in the filter
+   * Count the number of occurrences an item may be in the filter.
+   * Because this is a probabilistic data structure, this may not necessarily be accurate.
    * @param item Item
    * @return The number of occurrences of item
    */
@@ -43,7 +44,8 @@ export default class CuckooFilter extends BaseFilter {
   }
 
   /**
-   * Remove an occurrence of an item from the filter
+   * Remove an occurrence of an item from the filter.
+   * Remove elements that are not in the filter may delete a different item, resulting in false negatives!
    * @param item Item
    * @return 1 if item has been removed, 0 if item was not found
    */

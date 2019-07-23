@@ -25,17 +25,18 @@ export default class CountMinSketch extends BaseFilter {
   }
 
   /**
-   * Increase the count of an item by increment
+   * Add an item to the sketch
    * @param item Item
    * @param increment Increment
    * @return OK on success, error otherwise
    */
-  public add(item: any, increment: number): Promise<string> {
+  public add(item: any, increment: number = 1): Promise<string> {
     return this.client.call('CMS.INCRBY', this.name, item, increment)
   }
 
   /**
-   * Count the number of occurrences of an item in the sketch
+   * Count the number of occurrences an item may be in the sketch.
+   * Because this is a probabilistic data structure, this may not necessarily be accurate.
    * @param item Item
    * @return The number of occurrences of item
    */

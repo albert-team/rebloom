@@ -22,26 +22,27 @@ export default class TopKFilter extends BaseFilter {
   }
 
   /**
-   * Increase the count of an item by increment
+   * Add an item to the filter
    * @param item Item
    * @param increment Increment
-   * @return null if no change to the filter occurred, item dropped from the filter otherwise
+   * @return null if no change occurred, item dropped from the filter otherwise
    */
-  public add(item: any, increment: number): Promise<null> | Promise<any> {
+  public add(item: any, increment: number = 1): Promise<any> {
     return this.client.call('TOPK.INCRBY', this.name, item, increment)
   }
 
   /**
    * Check if an item already exists in the filter
    * @param item Item
-   * @return 0 if item does not exist, 1 otherwise
+   * @return 1 if item may exist, 0 if item certainly does not exist
    */
   public exists(item: any): Promise<number> {
     return this.client.call('TOPK.QUERY', this.name, item)
   }
 
   /**
-   * Count the number of occurrences of an item in the filter. The result may be lower than the real count.
+   * Count the number of occurrences an item may be in the filter.
+   * Because this is a probabilistic data structure, this may not necessarily be accurate.
    * @param item Item
    * @return The number of occurrences of item
    */
