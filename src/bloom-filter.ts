@@ -17,36 +17,18 @@ export default class BloomFilter extends BaseFilter {
   /**
    * Add an item to the filter
    * @param item Item
-   * @return 1 if item was newly added, 0 if it may have previously existed
+   * @return 1 if item was newly added, 0 if it may have already existed
    */
   public add(item: any): Promise<number> {
     return this.client.call('BF.ADD', this.name, item)
   }
 
   /**
-   * Add some items to the filter
-   * @param items Items
-   * @return Array of integers. Each is either 1 or 0
-   */
-  public addMany(items: any[]): Promise<number[]> {
-    return this.client.call('BF.MADD', this.name, ...items)
-  }
-
-  /**
    * Check if an item already exists in the filter
    * @param item Item
-   * @return 0 if item certainly does not exist, 1 if item may exist
+   * @return 1 if item may exist, 0 if item certainly does not exist
    */
   public exists(item: any): Promise<number> {
     return this.client.call('BF.EXISTS', this.name, item)
-  }
-
-  /**
-   * Check if some items already exist in the filter
-   * @param items Items
-   * @return Array of integers. Each is either 1 or 0
-   */
-  public existsMany(items: any[]): Promise<number[]> {
-    return this.client.call('BF.MEXISTS', this.name, ...items)
   }
 }
