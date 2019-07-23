@@ -1,8 +1,8 @@
 {
   "name": "@albert-team/rebloom",
-  "description": "Bloom filter and Cuckoo filter for Node.js using Redis with RedisBloom module",
+  "description": "Minimalistic RedisBloom client for Node.js",
   "license": "MIT",
-  "version": "1.1.0",
+  "version": "2.0.0-canary.0",
   "author": "Albert Team",
   "repository": "github:albert-team/rebloom",
   "main": "dist/index.js",
@@ -31,8 +31,11 @@
   "keywords": [
     "bloom",
     "cuckoo",
+    "topk",
+    "top-k",
     "filter",
-    "redis",
-    "redisbloom"
+    "count-min-sketch",
+    "redisbloom",
+    "redis"
   ]
 }
