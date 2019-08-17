@@ -18,13 +18,13 @@
 #### With `npm`
 
 ```bash
-npm i @albert-team/rebloom
+npm i @albert-team/rebloom@canary
 ```
 
 #### With `yarn`
 
 ```bash
-yarn add @albert-team/rebloom
+yarn add @albert-team/rebloom@canary
 ```
 
 ## Usage
@@ -52,8 +52,6 @@ const main = async () => {
 
 main()
 ```
-
-### API
 
 ## Changelog
 
