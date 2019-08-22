@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## v2.0.0
+
+### FEATURES
+
+- Add _Typedoc_ and generate API documentation
+
+### PATCHES
+
+- Upgrade [_Red_](https://github.com/albert-team/red) dependency to fix compatibility issue with Node < v9.11.0
+
 ## v2.0.0-canary.0
 
 ### FEATURES
