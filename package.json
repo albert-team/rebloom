@@ -11,6 +11,7 @@
     "dist"
   ],
   "scripts": {
+    "test": "jest",
     "build": "tsc",
     "build:docs": "rm -rf docs && typedoc src",
     "prepublishOnly": "rm -rf dist && yarn build"
@@ -19,15 +20,18 @@
     "@albert-team/red": "^0.7.1"
   },
   "devDependencies": {
-    "@types/node": "^12.7.2",
-    "@typescript-eslint/eslint-plugin": "^2.0.0",
-    "@typescript-eslint/parser": "^2.0.0",
-    "eslint": "^6.2.1",
-    "eslint-config-prettier": "^6.1.0",
-    "eslint-plugin-prettier": "^3.1.0",
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.7.5",
+    "@typescript-eslint/eslint-plugin": "^2.3.0",
+    "@typescript-eslint/parser": "^2.3.0",
+    "eslint": "^6.4.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "jest": "^24.9.0",
     "prettier": "^1.18.2",
+    "ts-jest": "^24.1.0",
     "typedoc": "^0.15.0",
-    "typescript": "^3.5.3"
+    "typescript": "^3.6.3"
   },
   "keywords": [
     "bloom",
