@@ -14,8 +14,8 @@ beforeEach(async () => {
 afterEach(async () => {
   await filter.disconnect()
 
-  Red.mockClear()
   call.mockClear()
+  Red.mockClear()
 })
 
 test('BaseFilter.reset()', async () => {
