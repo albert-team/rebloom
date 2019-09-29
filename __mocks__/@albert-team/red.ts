@@ -13,6 +13,28 @@ export const call = jest.fn((...args) => {
     if (redisDb.has(args[2])) return 1
     return 0
   }
+  if (args[0] === 'CF.RESERVE') return 'OK'
+  if (args[0] === 'CF.ADDNX') {
+    if (redisDb.has(args[2])) return 0
+    redisDb.add(args[2])
+    return 1
+  }
+  if (args[0] === 'CF.ADD') {
+    redisDb.add(args[2])
+    return 1
+  }
+  if (args[0] === 'CF.EXISTS') {
+    if (redisDb.has(args[2])) return 1
+    return 0
+  }
+  if (args[0] === 'CF.COUNT') return redisDb.size
+  if (args[0] === 'CF.DEL') {
+    if (!redisDb.has(args[2])) return 0
+    if (redisDb.has(args[2])) {
+      redisDb.delete(args[2])
+      return 1
+    }
+  }
 })
 
 export default jest.fn(() => {
