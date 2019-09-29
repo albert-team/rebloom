@@ -35,6 +35,13 @@ export const call = jest.fn((...args) => {
       return 1
     }
   }
+  if (args[0] === 'CMS.INITBYDIM') return 'OK'
+  if (args[0] === 'CMS.INITBYPROB') return 'OK'
+  if (args[0] === 'CMS.INCRBY') {
+    redisDb.add(args[2])
+    return 'OK'
+  }
+  if (args[0] === 'CMS.QUERY') return redisDb.size
 })
 
 export default jest.fn(() => {
