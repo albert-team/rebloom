@@ -13,6 +13,7 @@ export const call = jest.fn((...args) => {
     if (redisDb.has(args[2])) return 1
     return 0
   }
+
   if (args[0] === 'CF.RESERVE') return 'OK'
   if (args[0] === 'CF.ADDNX') {
     if (redisDb.has(args[2])) return 0
@@ -35,6 +36,7 @@ export const call = jest.fn((...args) => {
       return 1
     }
   }
+
   if (args[0] === 'CMS.INITBYDIM') return 'OK'
   if (args[0] === 'CMS.INITBYPROB') return 'OK'
   if (args[0] === 'CMS.INCRBY') {
@@ -42,6 +44,17 @@ export const call = jest.fn((...args) => {
     return 'OK'
   }
   if (args[0] === 'CMS.QUERY') return redisDb.size
+
+  if (args[0] === 'TOPK.RESERVE') return 'OK'
+  if (args[0] === 'TOPK.INCRBY') {
+    redisDb.add(args[2])
+    return [null]
+  }
+  if (args[0] === 'TOPK.QUERY') {
+    if (redisDb.has(args[2])) return [1]
+    return [0]
+  }
+  if (args[0] === 'TOPK.COUNT') return [redisDb.size]
 })
 
 export default jest.fn(() => {
