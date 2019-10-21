@@ -19,16 +19,24 @@ export const call = jest.fn((...args) => {
     redisDb.add(args[2])
     return 1
   }
+  if (args[0] === 'CF.ADD') {
+    redisDb.add(args[2])
+    return 1
+  }
+  if (args[0] === 'CMS.INCRBY') {
+    redisDb.add(args[2])
+    return 'OK'
+  }
+  if (args[0] === 'TOPK.INCRBY') {
+    redisDb.add(args[2])
+    return [null]
+  }
   if (
     args[0] === 'BF.EXISTS' || 
     args[0] === 'CF.EXISTS'
   ) {
     if (redisDb.has(args[2])) return 1
     return 0
-  }
-  if (args[0] === 'CF.ADD') {
-    redisDb.add(args[2])
-    return 1
   }
   if (
     args[0] === 'CF.COUNT' ||
@@ -40,14 +48,6 @@ export const call = jest.fn((...args) => {
       redisDb.delete(args[2])
       return 1
     }
-  }
-  if (args[0] === 'CMS.INCRBY') {
-    redisDb.add(args[2])
-    return 'OK'
-  }
-  if (args[0] === 'TOPK.INCRBY') {
-    redisDb.add(args[2])
-    return [null]
   }
   if (args[0] === 'TOPK.QUERY') {
     if (redisDb.has(args[2])) return [1]
