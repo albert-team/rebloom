@@ -33,13 +33,10 @@ test('BloomFilter.add()', async () => {
 test('BloomFilter.exists()', async () => {
   // check existence
   expect(await filter.exists('item1')).toBe(0)
-  expect(call).toBeCalledWith('BF.EXISTS', 'test', 'item1')
 
   // add a new item
   expect(await filter.add('item1')).toBe(1)
-  expect(call).toBeCalledWith('BF.ADD', 'test', 'item1')
 
   // check existence
   expect(await filter.exists('item1')).toBe(1)
-  expect(call).toBeCalledWith('BF.EXISTS', 'test', 'item1')
 })
