@@ -25,10 +25,10 @@ test('CountMinSketchFilter.fromProbability()', async () => {
 
 test('CountMinSketchFilter.add()', async () => {
   // add a new item
-  expect(await filter.add('item0')).toBe('OK')
+  expect(await filter.add('item0')).toEqual(1)
 
   // add item with increment
-  expect(await filter.add('item0', 2)).toBe('OK')
+  expect(await filter.add('item0', 2)).toEqual(3)
 })
 
 test('CountMinSketchFilter.count()', async () => {
@@ -36,7 +36,7 @@ test('CountMinSketchFilter.count()', async () => {
   expect(await filter.count('item1')).toBe(0)
 
   // add a new item
-  expect(await filter.add('item1')).toBe('OK')
+  expect(await filter.add('item1')).toEqual(1)
 
   // count added item
   expect(await filter.count('item1')).toBe(1)
