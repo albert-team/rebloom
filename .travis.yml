@@ -13,14 +13,17 @@ deploy:
     on:
       branch: master
       tags: true
+    skip_cleanup: true
   - provider: releases
     api_key: $GITHUB_TOKEN
     on:
       branch: master
       tags: true
+    skip_cleanup: true
   - provider: pages
     github_token: $GITHUB_TOKEN
     local_dir: docs
     on:
       branch: master
       tags: true
+    skip_cleanup: true
