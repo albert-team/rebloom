@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## v2.1.0
+
+### FEATURES
+
+- Add unit tests
+- Use _Travis CI_
+
+### PATCHES
+
+- Fix CMS.INCRBY change in RedisBloom v2.2.0
+
 ## v2.0.0
 
 ### FEATURES

@@ -1,5 +1,6 @@
 [![](https://img.shields.io/github/license/albert-team/rebloom.svg?style=flat-square)](https://github.com/albert-team/rebloom)
 [![](https://img.shields.io/npm/v/@albert-team/rebloom.svg?style=flat-square)](https://www.npmjs.com/package/@albert-team/rebloom)
+[![](https://img.shields.io/travis/com/albert-team/rebloom.svg?style=flat-square)](https://travis-ci.com/albert-team/rebloom)
 
 # REBLOOM
 
