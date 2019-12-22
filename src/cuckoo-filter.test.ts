@@ -48,8 +48,11 @@ test('CuckooFilter.count()', async () => {
   // add a new item
   expect(await filter.add('item1')).toBe(1)
 
+  // add an existing item with False notExistOnly
+  expect(await filter.add('item1', false)).toBe(1)
+  
   // count added item
-  expect(await filter.count('item1')).toBe(1)
+  expect(await filter.count('item1')).toBe(2)
 })
 
 test('CuckooFilter.remove()', async () => {
