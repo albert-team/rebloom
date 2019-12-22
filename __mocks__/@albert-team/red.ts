@@ -22,10 +22,9 @@ export const call = jest.fn((...args) => {
       const count = redisDb.get(args[2]) + 1
       redisDb.set(args[2], count)
       return 1
-    } else {
-      redisDb.set(args[2], 1)
-      return 1
     }
+    redisDb.set(args[2], 1)
+    return 1
   }
 
   if (args[0] === 'CMS.INCRBY') {
@@ -56,7 +55,6 @@ export const call = jest.fn((...args) => {
 
   if (args[0] === 'CF.DEL') {
     if (!redisDb.has(args[2])) return 0
-
     if (redisDb.has(args[2])) {
       redisDb.delete(args[2])
       return 1
