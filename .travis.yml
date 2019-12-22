@@ -1,0 +1,26 @@
+language: node_js
+node_js:
+  - '8'
+  - '10'
+  - '12'
+cache: yarn
+after_success:
+  - yarn run build:docs
+deploy:
+  - provider: npm
+    api_key: $NPM_TOKEN
+    email: 'luongquangmanh85@gmail.com'
+    on:
+      branch: master
+      tags: true
+  - provider: releases
+    api_key: $GITHUB_TOKEN
+    on:
+      branch: master
+      tags: true
+  - provider: pages
+    github_token: $GITHUB_TOKEN
+    local_dir: docs
+    on:
+      branch: master
+      tags: true
