@@ -1,7 +1,7 @@
 // mocked Redis database
 let redisDb: Map<string, number>
 
-export const call = jest.fn((...args) => {
+export const callOne = jest.fn((args) => {
   if (
     args[0] === 'BF.RESERVE' ||
     args[0] === 'CF.RESERVE' ||
@@ -72,8 +72,10 @@ export const call = jest.fn((...args) => {
   }
 })
 
+export const call = jest.fn((...args) => callOne(args))
+
 export default jest.fn(() => {
   redisDb = new Map()
 
-  return { connect: jest.fn(), disconnect: jest.fn(), call }
+  return { connect: jest.fn(), disconnect: jest.fn(), call, callOne }
 })

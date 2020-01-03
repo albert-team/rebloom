@@ -1,4 +1,4 @@
-import Red, { call } from '@albert-team/red'
+import Red, { call, callOne } from '@albert-team/red'
 import BloomFilter from './bloom-filter'
 
 let filter
@@ -11,13 +11,12 @@ beforeEach(async () => {
 afterEach(async () => {
   await filter.disconnect()
 
-  call.mockClear()
   Red.mockClear()
 })
 
 test('BloomFilter.reserve()', async () => {
   expect(await filter.reserve(1, 2)).toBe('OK')
-  expect(call).toBeCalledWith('BF.RESERVE', 'test', 1, 2)
+  expect(callOne).toBeCalledWith(['BF.RESERVE', 'test', 1, 2, 'EXPANSION', 2])
 })
 
 test('BloomFilter.add()', async () => {

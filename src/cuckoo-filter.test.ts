@@ -1,4 +1,4 @@
-import Red, { call } from '@albert-team/red'
+import Red from '@albert-team/red'
 import CuckooFilter from './cuckoo-filter'
 
 let filter
@@ -11,7 +11,6 @@ beforeEach(async () => {
 afterEach(async () => {
   await filter.disconnect()
 
-  call.mockClear()
   Red.mockClear()
 })
 
@@ -50,7 +49,7 @@ test('CuckooFilter.count()', async () => {
 
   // add an existing item with notExistOnly = false
   expect(await filter.add('item1', false)).toBe(1)
-  
+
   // count added item
   expect(await filter.count('item1')).toBe(2)
 })
