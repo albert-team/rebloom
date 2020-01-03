@@ -6,11 +6,23 @@ import BaseFilter from './base-filter'
 export default class CuckooFilter extends BaseFilter {
   /**
    * Reserve space for the filter
-   * @param minCapacity Minimum capacity
+   * @param capacity Estimated capacity for the filter
+   * @param bucketSize Number of items in each bucket
+   * @param maxIterations Number of attempts to swap buckets before declaring filter as full and creating an additional filter
+   * @param expansionRate Expansion rate
    * @return OK on success, error otherwise
    */
-  public reserve(minCapacity: number): Promise<string> {
-    return this.client.call('CF.RESERVE', this.name, minCapacity)
+  public reserve(
+    capacity: number,
+    bucketSize = 2,
+    maxIterations = 20,
+    expansionRate = 1
+  ): Promise<string> {
+    const cmd = ['CF.RESERVE', this.name, capacity]
+    if (bucketSize) cmd.push('BUCKETSIZE', bucketSize)
+    if (maxIterations) cmd.push('MAXITERATIONS', maxIterations)
+    if (expansionRate) cmd.push('EXPANSION', expansionRate)
+    return this.client.callOne(cmd)
   }
 
   /**
@@ -19,7 +31,7 @@ export default class CuckooFilter extends BaseFilter {
    * @param notExistsOnly Whether to accept duplicates
    * @return 1 if item was newly added, 0 if item already exists and notExistsOnly is true, error otherwise
    */
-  public add(item: any, notExistsOnly: boolean = true): Promise<number> {
+  public add(item: any, notExistsOnly = true): Promise<number> {
     const command = notExistsOnly ? 'CF.ADDNX' : 'CF.ADD'
     return this.client.call(command, this.name, item)
   }
