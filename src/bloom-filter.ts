@@ -6,12 +6,23 @@ import BaseFilter from './base-filter'
 export default class BloomFilter extends BaseFilter {
   /**
    * Reserve space for the filter
-   * @param errorRate Error rate
-   * @param minCapacity Minimum capacity
+   * @param errorRate The desired probability for false positives
+   * @param capacity The number of entries intended to be added to the filter
+   * @param expansionRate Expansion rate. If expansionRate <= 0, the filter is non-scalable.
    * @return OK on success, error otherwise
    */
-  public reserve(errorRate: number, minCapacity: number): Promise<string> {
-    return this.client.call('BF.RESERVE', this.name, errorRate, minCapacity)
+  public reserve(
+    errorRate: number,
+    capacity: number,
+    expansionRate = 2
+  ): Promise<string> {
+    let cmd
+    if (expansionRate <= 0) {
+      cmd = ['BF.RESERVE', this.name, errorRate, capacity, 'NONSCALING']
+    } else {
+      cmd = ['BF.RESERVE', this.name, errorRate, capacity, 'EXPANSION', expansionRate]
+    }
+    return this.client.callOne(cmd)
   }
 
   /**
