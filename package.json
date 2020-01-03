@@ -2,14 +2,17 @@
   "name": "@albert-team/rebloom",
   "description": "Minimalistic RedisBloom client for Node.js",
   "license": "MIT",
-  "version": "2.1.1",
   "author": "Albert Team",
   "repository": "github:albert-team/rebloom",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=8"
+  },
+  "version": "2.1.1",
   "files": [
     "dist"
   ],
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
   "scripts": {
     "test": "jest",
     "build": "tsc",
@@ -26,6 +29,7 @@
     "@typescript-eslint/parser": "^2.12.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-jest": "^23.2.0",
     "eslint-plugin-prettier": "^3.1.2",
     "jest": "^24.9.0",
     "prettier": "^1.19.1",
