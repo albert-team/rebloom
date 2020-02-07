@@ -4,15 +4,15 @@
 
 # REBLOOM
 
-> Minimalistic [RedisBloom][0] client for Node.js
+> Minimalistic [RedisBloom][0] client for Node.js.
 
 ## Installation
 
 ### Requirements
 
-- Node.js >= 8.0.0
-- Redis >= 4.0
-- [RedisBloom][0] >= 2.0.0
+- Node.js >= 8
+- Redis >= 4
+- [RedisBloom][0] >= 2.2.0
 
 ### Instructions
 

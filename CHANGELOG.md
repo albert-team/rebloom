@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## v2.2.0
+
+### FEATURES
+
+- Add optional arg `expansionRate` to `BloomFilter.reserve()`
+- Add optional args `bucketSize`, `maxIterations` and `expansionRate` to `CuckooFilter.reserve()`
+
 ## v2.1.0, v2.1.1
 
 ### FEATURES
