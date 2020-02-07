@@ -8,22 +8,25 @@ after_success:
   - yarn run build:docs
 deploy:
   - provider: npm
-    api_key: $NPM_TOKEN
+    edge: true
+    api_token: $NPM_TOKEN
     email: 'luongquangmanh85@gmail.com'
     on:
       branch: master
       tags: true
-    skip_cleanup: true
+    cleanup: false
   - provider: releases
-    api_key: $GITHUB_TOKEN
+    edge: true
+    token: $GITHUB_TOKEN
     on:
       branch: master
       tags: true
-    skip_cleanup: true
+    cleanup: false
   - provider: pages
-    github_token: $GITHUB_TOKEN
+    edge: true
+    token: $GITHUB_TOKEN
     local_dir: docs
     on:
       branch: master
       tags: true
-    skip_cleanup: true
+    cleanup: false

@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## v2.2.0
+## v2.2.0, v2.2.1
 
 ### FEATURES
 
