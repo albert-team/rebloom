@@ -27,7 +27,7 @@ export default class TopKFilter extends BaseFilter {
    * @param increment Increment
    * @return null if no change occurred, item dropped from the filter otherwise
    */
-  public add(item: any, increment: number = 1): Promise<any> {
+  public add(item: any, increment = 1): Promise<any> {
     return this.client.call('TOPK.INCRBY', this.name, item, increment)
   }
 

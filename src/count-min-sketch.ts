@@ -30,7 +30,7 @@ export default class CountMinSketch extends BaseFilter {
    * @param increment Increment
    * @return The number of occurrences of item
    */
-  public add(item: any, increment: number = 1): Promise<string> {
+  public add(item: any, increment = 1): Promise<string> {
     return this.client.call('CMS.INCRBY', this.name, item, increment)
   }
 

@@ -19,8 +19,8 @@ export default class Options implements OptionsInterface {
    * If provided, ignore host, port and redisClientOptions.
    */
   public client: Red
-  public host: string = 'localhost'
-  public port: number = 6379
+  public host = 'localhost'
+  public port = 6379
   /**
    * Options passed directly to the Redis client constructor
    */
