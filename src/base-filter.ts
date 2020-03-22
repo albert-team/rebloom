@@ -24,14 +24,14 @@ export default abstract class BaseFilter {
   /**
    * Connect to Redis server
    */
-  public connect() {
+  public connect(): Promise<void> {
     return this.client.connect()
   }
 
   /**
    * Disconnect from Redis server
    */
-  public disconnect() {
+  public disconnect(): Promise<void> {
     return this.client.disconnect()
   }
 

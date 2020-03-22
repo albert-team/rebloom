@@ -1,9 +1,8 @@
 {
-  "parser": "@typescript-eslint/parser",
   "env": {
-    "es6": true,
-    "node": true,
-    "jest/globals": true
+    "es2020": true,
+    "jest": true,
+    "node": true
   },
   "extends": [
     "plugin:@typescript-eslint/recommended",
@@ -12,15 +11,14 @@
     "plugin:jest/recommended",
     "eslint:recommended"
   ],
-  "plugins": ["jest"],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 2018,
+    "ecmaVersion": 2020,
     "ecmaFeatures": {
       "impliedStrict": true
     },
     "sourceType": "module"
   },
-  "rules": {
-    "no-console": "off"
-  }
+  "plugins": ["jest"],
+  "rules": {}
 }
