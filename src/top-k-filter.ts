@@ -49,4 +49,13 @@ export default class TopKFilter extends BaseFilter {
   public count(item: any): Promise<number> {
     return this.client.call('TOPK.COUNT', this.name, item)
   }
+
+  /**
+   * get full list of items in Top K list.
+   *
+   * @return full list of items in Top K list
+   */
+  public list(): Promise<string[]> {
+    return this.client.call('TOPK.LIST', this.name)
+  }
 }
