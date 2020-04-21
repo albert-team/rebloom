@@ -51,9 +51,8 @@ export default class TopKFilter extends BaseFilter {
   }
 
   /**
-   * get full list of items in Top K list.
-   *
-   * @return full list of items in Top K list
+   * Get full list of items in the filter
+   * @return Full list of items in the filter
    */
   public list(): Promise<string[]> {
     return this.client.call('TOPK.LIST', this.name)

@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## v2.3.0
+
+### FEATURES
+
+- Add `BloomFilter.madd()`
+- Add `BloomFilter.mexists()`
+- Add `TopKFilter.list()`
+
 ## v2.2.0, v2.2.1
 
 ### FEATURES
