@@ -41,7 +41,7 @@ yarn add @albert-team/rebloom
 const { BloomFilter } = require('@albert-team/rebloom')
 
 const main = async () => {
-  const filter = new BloomFilter('filtername',{"host":"127.0.0.1","port":6379,"password":"myPassword"})
+  const filter = new BloomFilter('filtername', {"host": "127.0.0.1", "port": "6379", "password": "myPassword"})
   await filter.connect()
 
   console.log(await filter.add('item0')) // 1
