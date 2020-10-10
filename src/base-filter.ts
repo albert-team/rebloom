@@ -20,7 +20,20 @@ export default abstract class BaseFilter {
     const { client, host, port, redisClientOptions } = this.options
     this.client = client ? client : new Red(host, port, redisClientOptions)
   }
-
+  
+    /**
+   * Get current filter name
+   */
+  get filterName():string{
+    return this.name
+  }
+  
+    /**
+   * Set new filter name
+   */
+  set filterName(newName:string){
+    this.name=newName
+  }
   /**
    * Connect to Redis server
    */
