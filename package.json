@@ -1,5 +1,5 @@
 {
-  "name": "rebloom",
+  "name": "@albert-team/rebloom",
   "description": "Minimalistic RedisBloom client for Node.js.",
   "license": "MIT",
   "author": "Albert Team",
