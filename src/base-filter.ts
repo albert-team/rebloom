@@ -5,7 +5,7 @@ import Options, { OptionsInterface } from './options'
  * Filter base class
  */
 export default abstract class BaseFilter {
-  protected readonly name: string
+  protected name: string
   protected readonly options: Options
   protected readonly client: Red
 
