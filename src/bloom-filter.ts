@@ -60,21 +60,4 @@ export default class BloomFilter extends BaseFilter {
   public mexists(items: any[]): Promise<number[]> {
     return this.client.call('BF.MEXISTS', this.name, ...items)
   }
-  
-  
-   /**
-   * Get filter info
-   * @return Array of string
-   */
-  public info(): Promise<string[]> {
-    return this.client.call('BF.INFO', this.name)
-  }
-  
-   /**
-   * delete a filter
-   * @return OK
-   */
-  public del(): Promise<number[]> {
-    return this.client.call('DEL', this.name)
-  }
 }
