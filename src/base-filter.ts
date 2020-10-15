@@ -5,7 +5,7 @@ import Options, { OptionsInterface } from './options'
  * Filter base class
  */
 export default abstract class BaseFilter {
-  protected readonly name: string
+  public name: string
   protected readonly options: Options
   protected readonly client: Red
 
@@ -20,7 +20,7 @@ export default abstract class BaseFilter {
     const { client, host, port, redisClientOptions } = this.options
     this.client = client ? client : new Red(host, port, redisClientOptions)
   }
-
+  
   /**
    * Connect to Redis server
    */
