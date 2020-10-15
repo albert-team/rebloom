@@ -5,7 +5,7 @@ import Options, { OptionsInterface } from './options'
  * Filter base class
  */
 export default abstract class BaseFilter {
-  protected name: string
+  public name: string
   protected readonly options: Options
   protected readonly client: Red
 
@@ -21,19 +21,6 @@ export default abstract class BaseFilter {
     this.client = client ? client : new Red(host, port, redisClientOptions)
   }
   
-    /**
-   * Get current filter name
-   */
-  get filterName():string{
-    return this.name
-  }
-  
-    /**
-   * Set new filter name
-   */
-  set filterName(newName:string){
-    this.name=newName
-  }
   /**
    * Connect to Redis server
    */
