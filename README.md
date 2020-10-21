@@ -41,7 +41,11 @@ yarn add @albert-team/rebloom
 const { BloomFilter } = require('@albert-team/rebloom')
 
 const main = async () => {
-  const filter = new BloomFilter('filtername',{host:'localhost',port:6379,password:'myPassword'})
+  const filter = new BloomFilter('filtername', {
+    host: 'localhost',
+    port: 6379,
+    redisClientOptions: { password: 'scrtpassword' },
+  })
   await filter.connect()
 
   console.log(await filter.add('item0')) // 1
@@ -51,7 +55,7 @@ const main = async () => {
   await filter.disconnect()
 }
 
-main()
+main().catch((err) => console.error(err))
 ```
 
 ### API
