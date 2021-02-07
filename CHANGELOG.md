@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## v2.5.0
+
+### FEATURES
+
+- Drop Node.js 8 support
+
+## v2.4.0
+
+### FEATURES
+
+- Make `BaseFilter.name` non-final & public
+- Add `BloomFilter.info()`
+
 ## v2.3.0
 
 ### FEATURES

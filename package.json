@@ -5,9 +5,9 @@
   "author": "Albert Team",
   "repository": "github:albert-team/rebloom",
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
   },
-  "version": "2.4.0",
+  "version": "2.5.0",
   "files": ["dist"],
   "types": "dist/index.d.ts",
   "main": "dist/index.js",

@@ -10,7 +10,7 @@
 
 ### Requirements
 
-- Node.js >= 8
+- Node.js >= 10
 - Redis >= 4
 - [RedisBloom][0] >= 2.2.0
 
