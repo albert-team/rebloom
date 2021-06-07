@@ -20,7 +20,7 @@
     "prepublishOnly": "rm -rf dist && yarn build"
   },
   "dependencies": {
-    "@albert-team/red": "^0.8.0"
+    "@albert-team/red": "^0.9.0"
   },
   "devDependencies": {
     "@types/jest": "^26.0.0",
