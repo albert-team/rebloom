@@ -107,4 +107,5 @@ dist
 .vscode-test
 
 # Lock files
+package-lock.json
 *.lock
