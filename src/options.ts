@@ -30,3 +30,12 @@ export default class Options implements OptionsInterface {
     Object.assign(this, options)
   }
 }
+
+export interface InsertOptions {
+  errorRate?: number
+  capacity?: number
+  expansionRate?: number
+  upsert?: boolean
+}
+
+export type StringOrNumber = string | number

@@ -1,4 +1,5 @@
 import BaseFilter from './base-filter'
+import { InsertOptions, StringOrNumber } from './options'
 
 /**
  * Bloom filter
@@ -62,10 +63,37 @@ export default class BloomFilter extends BaseFilter {
   }
 
   /**
-  * Get filter info
-  * @return Array of string
-  */
+   * Get filter info
+   * @return Array of string
+   */
   public info(): Promise<string[]> {
     return this.client.call('BF.INFO', this.name)
+  }
+
+  /**
+   * BF.INSERT is a sugarcoated combination of BF.RESERVE and BF.ADD.
+   * It creates a new filter if the key does not exist using the relevant arguments (see BF.RESERVE).
+   * Next, all ITEMS are inserted.
+   * @param items Array of items
+   * @param options InsertOptions
+   * @return Array of integers, each is either 1 or 0 depending on whether the corresponding item was newly added or may have already existed
+   */
+  public insert(
+    items: any[],
+    { errorRate, capacity, expansionRate, upsert = true }: InsertOptions = {}
+  ): Promise<number[]> {
+    const cmd: StringOrNumber[] = ['BF.INSERT', this.name]
+    if (errorRate) cmd.push('ERROR', errorRate)
+
+    if (capacity) cmd.push('CAPACITY', capacity)
+
+    if (expansionRate)
+      if (expansionRate < 0) cmd.push('NONSCALING')
+      else cmd.push('EXPANSION', expansionRate)
+
+    if (!upsert) cmd.push('NOCREATE')
+
+    cmd.push('ITEMS', ...items)
+    return this.client.call(...cmd)
   }
 }
