@@ -23,7 +23,7 @@
     "@albert-team/red": "^0.9.0"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.0",
+    "@types/jest": "^29.1.1",
     "@types/node": "^16.4.10",
     "@typescript-eslint/eslint-plugin": "^4.26.0",
     "@typescript-eslint/parser": "^4.26.0",
